@@ -1,0 +1,82 @@
+
+
+#wrap_login {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-image:url("../images/bg-home/banner-login2.jpg");
+    background-image : -moz-linear-gradient( #0389b19c, #a45ca578 120%), url("../images/bg-home/banner-login2.jpg");
+    background-image : -webkit-linear-gradient( #0389b19c, #a45ca578 120%), url("../images/bg-home/banner-login2.jpg");
+    background-image :-webkit-gradient ( #0389b19c, #a45ca578 120%), url("../images/bg-home/banner-login2.jpg");
+    background-image : -o-linear-gradient( #0389b19c, #a45ca578 120%), url("../images/bg-home/banner-login2.jpg");
+    background-image : -ms-linear-gradient ( #0389b19c, #a45ca578 120%), url("../images/bg-home/banner-login2.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+#cover_login {
+    position: relative;
+    width: 35%;
+    margin: auto;
+    height: auto;
+}
+
+#container_login {
+    position: relative;
+    float: left;
+    width: 100%;
+    background-color: #fff;
+    padding: 35px 10% 35px 10%;
+    border-top: 10px solid;
+      border-image:linear-gradient(50deg, rgb(88, 155, 219), rgb(3, 99, 191)) 1;
+    box-shadow: 0px 3px 12px 0px rgba(41,41,41,1);
+}
+
+#login_form {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.box_login_label, .box_login_input, #box_submit_login {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.box_login_label label {
+    font-family: 'Open Sans', sans-serif;
+    color: #000;
+    font-weight: 600;
+    font-size: 1.3em;
+}
+.box_login_input input {
+  font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 40px;
+    border-width: 0px 0px 1px 0px;
+    border-color: #006aa2;
+    background-color: rgba(0,0,0,0);
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-size: 1em;
+    color: #000;
+    cursor: pointer;
+}
+#box_submit_login input, #box_submit_login button {
+    width: auto;
+    float: right;
+    height:auto;
+    padding: 15px 4%;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #006aa2;
+/*#fb5d5d;*/
+    font-size: .9em;
+    border: 0px;
+    border-radius: 3px;
+    cursor: pointer;
+}
