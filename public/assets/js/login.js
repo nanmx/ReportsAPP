@@ -37,6 +37,8 @@ function login_ajax(username,password){
             let resp=data.success;
             if(!resp){
                 $("#msj_login").replaceWith('<label id="msj_login" style="color:red;">Error del usuario o contraseña</label>');
+            }else{
+                window.location.replace($("#base_url").val()+'Panel-Principal');
             }
         });
 

@@ -4,7 +4,7 @@ class Appconfig extends Model
 {
     protected $db;
     function __construct(){
-        $this->db=  \Config\Database::connect('default');
+        $this->db=  \Config\Database::connect();
     }
     /*Recupera datos de app_config y pasa los datos a $config_array con índice de key y su valor */
 	function get_info(){

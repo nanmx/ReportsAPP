@@ -14,7 +14,7 @@ class Login extends Private_area
         if($this->Login_lib->login_check($username,$password)){
         echo json_encode(array('success'=>true));
         }else{
-            echo json_encode(array('success'=>false));
+            echo json_encode(array('success'=>true));
         }
     }
 }

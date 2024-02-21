@@ -22,6 +22,9 @@
         <link rel="stylesheet" rev="stylesheet" href="<?php echo base_url();?>assets/css/style.css" />
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <title>Reports Login</title>
+        <meta name="msapplication-TileImage" content="<?php echo base_url(); ?>assets/images/logo/logotipo.png">
+        <meta name="image" property="og:image" content="<?php echo base_url(); ?>assets/images/logo/logotipo.png" />
+<meta property="og:image:type" content="image/png" />
     </head>
     <body >
         <div id="wrap_login">
@@ -67,6 +70,7 @@
             </div>
         </div>
     </body>
+    <input type=hidden value="<?php echo base_url();?>" id="base_url">
     <script src="<?php echo base_url(); ?>assets/js/login.js"></script>
 <script type="text/javascript">
 $( document ).ready( readyFunction );

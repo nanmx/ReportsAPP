@@ -80,3 +80,69 @@
     border-radius: 3px;
     cursor: pointer;
 }
+@media only screen  and (max-width :1024px) {
+
+  /*LOGIN*/
+    #cover_login {
+        width: 50%;
+    }
+    #welcome_login {
+        font-size: 2.0em;
+    }
+  /*HEADER*/
+    .box_modules_header {
+        width: 10%;
+    }
+
+}
+@media only screen  and (max-width :640px) {
+    /*LOGIN*/
+        #cover_login {
+            width: 80%;
+        }
+        #logo_login {
+            width: 50%;
+            margin-left: 25%;
+            margin-top: 10px;
+        }
+        #box_welcome_login {
+            margin-bottom: 15px;
+        }
+        #container_login {
+            padding: 35px 10% 35px 10%;
+        }
+}
+
+@media only screen  and (max-width :414px )  {
+  
+    #logo_login {
+        width: 70%;
+        margin-left: 15%;
+    }
+    #box_welcome_login {
+        margin-bottom: 20px;
+    }
+}
+@media only screen  and (max-width :360px ) {}
+
+@media only screen  and (max-width :320px) {
+    #welcome_login {
+        font-size: 0.8em;
+    }
+    #box_submit_login input {
+        font-size: 1.5em;
+    }
+    @media only screen  and (max-width :240px) {
+
+        .box_login_input input {
+            font-size: 1.1em;
+        }
+        .box_login_label label {
+            font-size: 1.0em;
+        }
+        #box_submit_login input {
+            font-size: 1.3em;
+        }
+    }
+
+}

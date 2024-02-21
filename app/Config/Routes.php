@@ -7,3 +7,5 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Login::index');
 $routes->add('LoginValidation/', 'Login::login_validation');
+$routes->add('Panel-Principal', 'Home::index', ['as' => 'Panel-Principal']);
+$routes->add('Salir', 'Home::logout');

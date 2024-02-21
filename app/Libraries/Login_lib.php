@@ -16,5 +16,11 @@ class Login_lib
       }
 
     }
+    /**/
+	function logout(){
+		if(!$this->session->destroy()) {
+	     return false;
+		}
+	}
 }
 ?>
