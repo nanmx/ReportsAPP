@@ -4,7 +4,7 @@ class Home extends Private_area
     protected $config_lib;
     function __construct(){
 		parent::__construct();
-        helper(['fechas']);
+        
     }
     function index(){
         $data["nav"]=$this->nav;
