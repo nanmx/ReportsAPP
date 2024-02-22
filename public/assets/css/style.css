@@ -247,7 +247,7 @@ $('#ico_menu').on("click", function() {
 #accordion .accordion-heading {
     height: auto;
     border-bottom: 1px solid #064060;
-  background-color:rgb(0, 94, 174);
+  background-color:rgb(39 53 64);
   /*rgb(57, 113, 255)*/
     display: block;
 }
@@ -534,6 +534,83 @@ font-family: 'Patrick Hand SC', cursive;*/
 .name_menu_modules_header:hover {
     color: #89bfcc;
 }
+/*---------------------------------
+----------NAVEGACION ICONOS MODULOS
+-------------------------------------*/
+#cover_navigation_modules_header {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: auto;
+}
+.nav_container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: normal;
+    flex-direction: row;;
+}
+.box_modules_header { 
+    padding: 33px 0px 33px 0px;
+    box-sizing: border-box; 
+}
+.box_modules_header img {
+
+    width: 80px;
+    height: 80px;
+    border: 2px dashed white;
+    border-radius: 100%;
+    margin-top: 15px;
+}
+.box_modules_header img:hover {
+    border: 0px;
+    transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    background-color: #a45ca5;
+    background-image: linear-gradient(102deg, #a45ca5 1%, #0389b1 98%);
+}
+.name_menu_modules_header {
+    position: relative;
+    float: left;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    letter-spacing: .5px;
+    margin-top: 6px;
+    border: none;
+    font-weight: 500;
+      font-size: 1em;
+      margin-top: 10px;
+      font-family: 'Open sans', sans-serif;
+/*font-size:1.5em;
+font-family: 'Loved by the King', cursive;
+font-family: 'Patrick Hand SC', cursive;*/
+}
+.name_menu_modules_header:hover {
+    color: #89bfcc;
+}
+.accordion .card:not(:first-of-type):not(:last-of-type) {
+    border-bottom: 0;
+    border-radius: 0;
+  }
+  
+  .accordion .card:not(:first-of-type) .card-header:first-child {
+    border-radius: 0;
+  }
+  
+  .accordion .card:first-of-type {
+    border-bottom: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .accordion .card:last-of-type {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
 @media only screen  and (max-width :1024px) {
 
   /*LOGIN*/
