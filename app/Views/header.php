@@ -9,12 +9,14 @@
 		<meta http-equiv="Last-Modified" content="0">
 		<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
 		<meta http-equiv="Pragma" content="no-cache">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-		<link rel="stylesheet" rev="stylesheet" href="<?php echo base_url();?>assets/css/jquery-ui.css" />
+        <link rel="stylesheet" rev="stylesheet" href="<?php echo base_url();?>assets/css/jquery-ui.css" />
+	
         <link rel="stylesheet" rev="stylesheet" href="<?php echo base_url();?>assets/css/normalize.css" />
         <link rel="stylesheet" rev="stylesheet" href="<?php echo base_url();?>assets/css/style.css" />
+		<link rel="stylesheet" rev="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css" />
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+		<script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
+
         <title>Reports Login</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,300italic,700|Raleway:400,300,500|Lato:400,600,700,900|Nunito+Sans:400,600,700|Cabin:400,600,500|Open+Sans+Condensed:300|Open+Sans:300,400,600,700|Oxygen:400,300|Loved+by+the+King|Patrick+Hand+SC|Advent+Pro|Alegreya+Sans+SC|Basic|Farsan|Julius+Sans+One|Marcellus+SC|Marck+Script|Tauri|Voltaire|Cabin+Condensed|Roboto+Condensed|Montserrat:400,500,600,800|PT+Sans:400,700" rel="stylesheet" type="text/css">
         <title>Reports  | <?php echo  Lang("Modules.".$controller_name."_nav");  ?></title>
