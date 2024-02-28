@@ -16,10 +16,9 @@
 		<link rel="stylesheet" rev="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css" />
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 		<script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
-
-        <title>Reports Login</title>
+		<script src="<?php echo base_url();?>assets/js/manage.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,300italic,700|Raleway:400,300,500|Lato:400,600,700,900|Nunito+Sans:400,600,700|Cabin:400,600,500|Open+Sans+Condensed:300|Open+Sans:300,400,600,700|Oxygen:400,300|Loved+by+the+King|Patrick+Hand+SC|Advent+Pro|Alegreya+Sans+SC|Basic|Farsan|Julius+Sans+One|Marcellus+SC|Marck+Script|Tauri|Voltaire|Cabin+Condensed|Roboto+Condensed|Montserrat:400,500,600,800|PT+Sans:400,700" rel="stylesheet" type="text/css">
-        <title>Reports  | <?php echo  Lang("Modules.".$controller_name."_nav");  ?></title>
+        <title>Reports  | <?php echo  Lang("Modules.".strtolower($controller_name)."_nav");  ?></title>
 <head>
 <body>
     <header id="header_menu">
@@ -84,6 +83,12 @@
 $( document ).ready( readyFunction );
 let base_url="<?php echo base_url();?>"
 function readyFunction( jQuery ){
+let module="<?= $controller_name?>";
+if(module==="Users"){
+	module="<?php echo  url_title(Lang("Modules.".strtolower($controller_name)."_nav"));  ?>";
+	save_users_form(module);
+
+}
 	$("#content_area_wrapper").on("click",function()
 				{
 					if($("#c-tog-menu").attr("class")=="accordion-toggle"){

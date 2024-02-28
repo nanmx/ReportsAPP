@@ -35,31 +35,29 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Nombre:</label>
+            <label for="recipient-first_name" id="first_name_label" class="col-form-label">Nombre:</label>
             <input type="text" class="form-control" id="first_name" name="in_first_name" placeholder="Escriba el nombre">
           </div>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Apellido:</label>
+            <label for="recipient-last_name" id="last_name_label" class="col-form-label">Apellido:</label>
             <input type="text" class="form-control" id="last_name" name="in_last_name" placeholder="Escriba el apellido">
           </div>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label"> Usuario:</label>
+            <label for="recipient-username" id="username_label" class="col-form-label"> Usuario:</label>
             <input type="text" class="form-control" id="username" name="in_username" placeholder="Escriba el nombre de usuario">
           </div>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Contraseña</label>
-            <input type="text" class="form-control" id="password" name="in_password" placeholder="Escriba la contraseña">
+            <label for="recipient-password" id="password_label" class="col-form-label">Contraseña:</label>
+            <input type="password" class="form-control" id="password" name="in_password" placeholder="Escriba la contraseña">
           </div>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Confirmar Contraseña</label>
-            <input type="text" class="form-control" id="repeat_password" name="repeat_password" placeholder="Confirme la contraseña">
-          </div>
+         
          
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary"> Guardar</button>
+        <button type="button" class="btn btn-primary" id="save"> Guardar</button>
       </div>
     </div>
   </div>
