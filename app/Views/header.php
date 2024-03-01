@@ -57,7 +57,7 @@
 							</div>
                     
                     <div id="box_name_user">
-                        <span>Bienvenido</span>
+                        <span>Bienvenido <?php echo $user_info->first_name." ".$user_info->last_name; ?></span>
                     </div>
                     <div id="menu_date">
 								<?php

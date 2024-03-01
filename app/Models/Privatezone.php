@@ -16,8 +16,8 @@ class Privatezone extends Model
 			$user_info = $query->getRow();
       $user_info->cle;
       $encrypter = \Config\Services::encrypter();
-      $decrypt_cle=$encrypter->decrypt($user_info->cle);
-      $decrypt_hashed_password=$encrypter->decrypt($user_info->password,['key' => $decrypt_cle]);
+      $decrypt_cle=$user_info->cle;
+      $decrypt_hashed_password=$user_info->password;
       $input_hashed_password=hash_hmac("sha256",$credenciales['password'],$pepper);
       if(password_verify($input_hashed_password, $decrypt_hashed_password)){
         return $user_info;
@@ -40,4 +40,27 @@ class Privatezone extends Model
       }
       return "";
     }
+     /*Obtiene la info del usuario*/
+  function get_user_complete_info($person_id,$data_base_info){
+    $dbc = \Config\Database::connect($data_base_info);
+		$builder=$dbc->table('users');
+    $builder->where('users.person_id',$person_id);
+		$builder->join('people', 'people.person_id = users.person_id');
+		$query = $builder->get();
+		if($query->getNumRows()==1){
+			return $query->getRow();
+		}
+		else{
+			/*Obtener el objeto primario base vacío, ya que $ customer_id NO es un cliente*/
+			$person_obj=new \stdClass;
+			/*Obtenga todos los campos de la tabla de clientes*/
+			$fields =$query->getFieldNames();
+			/*agregue esos campos al objeto principal base, tenemos un objeto vacío completo*/
+			foreach ($fields as $field)
+			{
+				$person_obj->$field='';
+			}
+			return $person_obj;
+		}
+	}
 }

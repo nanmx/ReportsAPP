@@ -62,8 +62,10 @@ class User extends Person
 				$user_id = $person_data["person_id"];
 				$user_data["person_id"]=$user_id;
 				$builder=$this->db->table('users');
-				$success=$builder->insert($user_data);
-				if($success)$this->conection_data($user_id);
+				
+			$success=$builder->insert($user_data);
+			$query = $this->db->getLastQuery();
+			if($success)$this->conection_data($user_id);
 			}
 			else{
 				$builder->where("person_id", $user_id);
@@ -91,13 +93,14 @@ class User extends Person
 			$encrypt_db_name=$encrypter->encrypt('cctpos_main');
 			$encrypt_password=$encrypter->encrypt($db->password);
 			$conection_data=array(
-			"person_id"=>$user_id,
-			"username"=>$encrypt_db_user,
-			"password"=>$encrypt_password,
-			"database"=>$encrypt_db_name,
-			"hostname"=>$db->hostname,
-			"referral_link"=>$encrypter->encrypt(get_password(0).'/'.$user_id));
+			"person_id"=>mb_convert_encoding($user_id,"UTF-8"),
+			"hostname"=>mb_convert_encoding($db->hostname,"UTF-8"),
+			"username"=>mb_convert_encoding($encrypt_db_user,"UTF-8"),
+			"password"=>mb_convert_encoding($encrypt_password,"UTF-8"),
+			"database"=>mb_convert_encoding($encrypt_db_name,"UTF-8"),
+			"referral_link"=>"");
 			$builder=$this->db->table('customers_conection_data');
+				
 			$builder->insert($conection_data);
 		}
 	}

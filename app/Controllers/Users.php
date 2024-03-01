@@ -16,6 +16,7 @@ class Users extends Private_area
     /*Carga el manage view del modulo*/
 	function index(){
         $data["nav"]=$this->nav;
+		$data["user_info"]=$this->logged_in_user_info;
         $data['controller_name']=$this->controller_name;
         $total_rows = $this->User->count_all();
 		$per_page = $this->config_info['paginacion'];
@@ -40,23 +41,23 @@ class Users extends Private_area
 			$person_data = array(
 				"first_name"=>$rawData["first_name"],
 				"last_name"=>$rawData["last_name"]);
-			$elpepe=hash_hmac("sha256",trim($rawData["password"]),$this->config_info["pepper"]);
+			$elpepe=hash_hmac("sha256",trim($this->request->getPost("password")),$this->config_info["pepper"]);
 			$password_hashed=password_hash($elpepe,PASSWORD_ARGON2ID);
 			$cle=get_password();
 			$config         = new \Config\Encryption();
 			$config->key    = $cle;
 			$encrypter = \Config\Services::encrypter($config);
-			$bin_encrypt_password=$encrypter->encrypt($password_hashed);
-			$user_data["password"]=$bin_encrypt_password;
+			$bin_encrypt_password=$password_hashed;
+			$user_data["password"]= mb_convert_encoding($bin_encrypt_password,"UTF-8");
 			unset($encrypter);
 			$encrypter = \Config\Services::encrypter();
-			$user_data["cle"]=$encrypter->encrypt($cle);
-			$user_data["username"]=$rawData["username"];
+			$user_data["cle"]= mb_convert_encoding($cle,"UTF-8");
+			$user_data["username"]=mb_convert_encoding($this->request->getPost("username"),"UTF-8","ASCII");
 		
 			if($user_id==-1){
-				$user_data["deactivate"]=0;
+				$user_data["deactivate"]=mb_convert_encoding(0,"UTF-8");
 			}
-		//	var_dump($user_data);
+		
 			if($this->User->save_user($person_data,$user_data,$user_id)){
 				// Nuevo usuario 
 				if($user_id==-1){

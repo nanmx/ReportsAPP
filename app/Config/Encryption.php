@@ -63,7 +63,7 @@ class Encryption extends BaseConfig
      *
      * Set to false for CI3 Encryption compatibility.
      */
-    public bool $rawData = false;
+    public bool $rawData = true;
 
     /**
      * Encryption key info.
