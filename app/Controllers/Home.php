@@ -9,6 +9,7 @@ class Home extends Private_area
     function index(){
         $data["nav"]=$this->nav;
         $data['controller_name']=$this->controller_name;
+		$data["user_info"]=$this->logged_in_user_info;
         echo view('home', $data);
 
     }

@@ -41,7 +41,7 @@ class Privatezone extends Model
       return "";
     }
      /*Obtiene la info del usuario*/
-  function get_user_complete_info($person_id,$data_base_info){
+    function get_user_complete_info($person_id,$data_base_info='default'){
     $dbc = \Config\Database::connect($data_base_info);
 		$builder=$dbc->table('users');
     $builder->where('users.person_id',$person_id);

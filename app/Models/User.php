@@ -111,5 +111,10 @@ class User extends Person
 		$query = $builder->get();
 		return ($query->getNumRows()==1);
 	}
+	/*ver si otros usuarios estan  conectados*/
+	function is_online($person_id){
+		$online=false;
+	
+		return $online;}
 
 }
