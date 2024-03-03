@@ -3,7 +3,7 @@
     <div id="content_area">
         <div id="cover_interaction_bar">
             <div id="interaction_bar_top">
-                <div id="title_interaction_bar" >
+                <div class="title_interaction_bar" >
                <?=  Lang("Modules.".strtolower( $controller_name."_nav"));?>
                 </div>
                 
@@ -12,20 +12,31 @@
 				
 			</div>
             <div id="interaction_bar_bottom">
+            <div class="title_interaction_bar" id="msjs">
+           
+            </div>
                 <ul id="list_interaction_bar">
                     <li  class="li_look_interaction_bar" id="li_look_manage" >
                     <div class="input-group">
-                        <select class="custom-select" id="inputGroupSelect04">
-                        <option selected>Seleccionar tipo...</option>
-                        <option value="1">Kilogramos</option>
-                        <option value="2">Precio</option>
-                        <option value="2">Costo</option>
-                        <option value="3">Margen de utilidad por venta</option>
+                        <select class="custom-select" id="report_choose">
+                        <option selected value="0">Seleccionar tipo...</option>
+                        <option value="kgs">Kilogramos</option>
+                        <option value="sales">Venta</option>
+                        <option value="price">Precio</option>
+                        <option value="cost">Costo</option>
+                        <option value="profit">Margen de utilidad por venta</option>
                         </select>
-                        <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">Generar</button>
+                       
+                      </div>
+                    </li>
+                    <li  class="li_look_interaction_bar" >
+                    <div class="input-group">
+                      <?php echo form_dropdown('week', $all_weeks, date('W'),array
+                    ('class'=>'custom-select'));?>
+                     <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="do_report">Generar</button>
                         </div>
-                        </div>
+                    </div>
                     </li>
                 </ul>
             </div>

@@ -34,8 +34,8 @@ class Login_lib
       return false;
     }
   }
-   /*Checa si el usuario esta logeado*/
-   function is_user_login(){
+  /*Checa si el usuario esta logeado*/
+  function is_user_login(){
     if($this->session->has('user_data')){
         $user_data=$this->session->get('user_data');
       //  $data_base_info=$this->Privatezone->get_database_info($user_data['person_id']);
@@ -51,11 +51,34 @@ class Login_lib
       return false;
     }
   }
-    /**/
-	function logout(){
+  /**/
+  function logout(){
 		if(!$this->session->destroy()) {
 	     return false;
 		}
 	}
+  /**/
+  function get_data_conection(){
+    $conection = [
+      'DSN'      => '',
+      'hostname' => 'mariscosvargas.ddns.net',
+      'username' => 'postgres',
+      'password' => 'Vargas.2023',
+      'database' => 'odoo',
+      'DBDriver' => 'Postgre',
+      'DBPrefix' => '',
+      'pConnect' => false,
+      'DBDebug'  => (ENVIRONMENT !== 'production'),
+      'charset'  => 'utf8',
+      'DBCollat' => 'utf8_general_ci',
+      'swapPre'  => '',
+      'encrypt'  => false,
+      'compress' => false,
+      'strictOn' => false,
+      'failover' => [],
+      'port'     => 5432,
+    ];
+    return $conection;
+  }
 }
 ?>

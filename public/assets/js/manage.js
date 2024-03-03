@@ -23,37 +23,69 @@ function validation_users_form(){
         return false;
     }
     $("#password_label").replaceWith('<label for="recipient-password" id="password_label" class="col-form-label">Contraseña:</label>');
-   let data={
-        'first_name': $("#first_name").val(),
-        'last_name': $("#last_name").val(),
-        'username': $("#username").val(),
-        'password': $("#password").val(),
-}
-return data;
+    let data={
+            'first_name': $("#first_name").val(),
+            'last_name': $("#last_name").val(),
+            'username': $("#username").val(),
+            'password': $("#password").val(),
+    }
+    return data;
 }
 
 function save_users_form(module){
-$("#save").on('click', function(){
-    let data=validation_users_form();
-    if(data!=false){
-        $.ajax(
-            {
-            method: "POST",
-            url:module+"/Save/-1",
-            dataType: 'json',
-            data: data,
-            minLength: 2,
-            delay: 1,
-            cache: false
-            }).done(function(data){
-                console.log(data);
-            	if(data.success===true){
-                    $('#form').modal('hide')
+    $("#save").on('click', function(){
+        let data=validation_users_form();
+        if(data!=false){
+            $.ajax(
+                {
+                method: "POST",
+                url:module+"/Save/-1",
+                dataType: 'json',
+                data: data,
+                minLength: 2,
+                delay: 1,
+                cache: false
+                }).done(function(data){
+                    console.log(data);
+                    if(data.success===true){
+                        $('#form').modal('hide')
 
-            
-            }
+                
+                }
+            });
+        }
+    });
+
+}
+
+function get_report(){
+    $("#do_report").on('click',function(){
+        let choosed=$("#report_choose").val();
+        if(choosed!=='0'){
+            do_report({choosed:choosed});
+
+        }else{
+            $("#msjs").replaceWith(' <div class="title_interaction_bar" id="msjs">Selecciona un tipo de reporte!!!</div>');
+        }
+    });
+    $("#report_choose").on('change',function(){
+        $("#msjs").replaceWith(' <div class="title_interaction_bar" id="msjs"></div>');
+    });
+}
+
+function do_report(data){
+    let module=$("#module").val();
+    $.ajax({
+        method: "POST",
+        url:module+"/Get-Report/",
+        data:data,
+        dataType: 'json',
+        minLength: 2,
+        delay: 1,
+        cache: false
+        }).done(function(data){
+
         });
-    }
-});
+
 
 }

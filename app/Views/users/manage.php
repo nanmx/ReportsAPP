@@ -3,7 +3,7 @@
     <div id="content_area">
         <div id="cover_interaction_bar">
             <div id="interaction_bar_top">
-                <div id="title_interaction_bar" >
+                <div class="title_interaction_bar" >
                <?=  Lang("Modules.".strtolower( $controller_name."_nav"));?>
                 </div>
                 

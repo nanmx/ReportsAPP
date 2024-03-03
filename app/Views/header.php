@@ -9,6 +9,7 @@
 		<meta http-equiv="Last-Modified" content="0">
 		<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
 		<meta http-equiv="Pragma" content="no-cache">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
         <link rel="stylesheet" rev="stylesheet" href="<?php echo base_url();?>assets/css/jquery-ui.css" />
 	
         <link rel="stylesheet" rev="stylesheet" href="<?php echo base_url();?>assets/css/normalize.css" />
@@ -79,6 +80,7 @@
             </div>
         </div>
     </header>
+	<input id="module" type="hidden" value="<?php echo  url_title(Lang("Modules.".strtolower($controller_name)."_nav"));  ?>">
 	<script type="text/javascript">
 $( document ).ready( readyFunction );
 let base_url="<?php echo base_url();?>"
@@ -87,6 +89,9 @@ let module="<?= $controller_name?>";
 if(module==="Users"){
 	module="<?php echo  url_title(Lang("Modules.".strtolower($controller_name)."_nav"));  ?>";
 	save_users_form(module);
+
+}else if(module==="Sales"){
+get_report();
 
 }
 	$("#content_area_wrapper").on("click",function()

@@ -1273,7 +1273,7 @@ border:0px solid #000!important;
 }
 .dropdown-item:hover{color: #131518!important;}
 .dropdown-divider{margin: 0px!important;}
-#title_interaction_bar {
+.title_interaction_bar {
     position: relative;
     float: left;
     width: auto;
@@ -1475,6 +1475,7 @@ font-size: 1em;
     width: 50%;
     margin-right: 6px;
     height: auto;
+    padding-bottom: 20px;
 }
 .li_look_interaction_bar
 .ui-widget{
@@ -6919,6 +6920,10 @@ float: left;}
     border: 0px!important;
     cursor: pointer;
 }
+#msjs{
+    color:#ec0c2a !important;
+    font-size: 1.2em !important;
+}
 /*5%*/
 /*********************************************
 Hoja de estilo principal de Cash and Control
@@ -6983,7 +6988,7 @@ Para Dispositivos
       width: 18%;
   }
   /*MANAGE*/
-  #title_interaction_bar{font-size: 1.5em;}
+  .title_interaction_bar{font-size: 1.5em;}
   /*POPUPS*/
   .cover_field_row_popup, .cover_field_row_popup_form{width: 45%;}
 /*MODLES ID*/
@@ -7115,7 +7120,7 @@ font-weight: 500;}
   .cover_field_row_popup_2{width: 100%;}
 /*MODLES INTERACTION BAR*/
 /*(textos con tipografia mediana)*/
-  #title_interaction_bar,
+  .title_interaction_bar,
   #box_info_title_middle label {
       font-size: 1.4em!important;
   }
@@ -7423,7 +7428,7 @@ background-color: #fefffd91!important;}
   #welcome_login {
       font-size: 1.1em;
   }
-  #title_interaction_bar {
+  .title_interaction_bar {
       font-size: 1.2em;
   }
   #panel_header_Quitar, #opc-edit {
@@ -7453,7 +7458,7 @@ background-color: #fefffd91!important;}
     height: 30px;
 }
   #cover_logo {
-      width: 33%;
+      width: 13%;
   }
   .box_modules_header {
       width: 17.5%;
@@ -7531,7 +7536,7 @@ background-color: #fefffd91!important;}
   }
   /*POPUPS*/
   .cover_field_row_popup, .cover_field_row_popup_form{width: 80%;}
-  #title_interaction_bar, #box_info_title_middle label{font-size: 1.2em!important;}
+  .title_interaction_bar, #box_info_title_middle label{font-size: 1.2em!important;}
 /*TABLES*/
   .cover_titles_table, .cover_titles_reg_pedidos {
       display: none;
@@ -7702,6 +7707,10 @@ display:none;
       width: 30%;
       padding: 0px 3% 0px 10%;
   }
+  option, select {
+    font-size: 0.75em !important;
+
+  }
 }
 @media only screen  and (max-width :480px) {
 #subtitle_price_land{
@@ -7785,7 +7794,7 @@ margin-top: 20px;}
       left: 15%;
   }
   #cover_logo {
-      width: 40%;
+      width: 15%;
   }
   #list_user {
       width: 70%;
@@ -7847,7 +7856,7 @@ margin-top: 20px;}
       margin-top: -25px;
       margin-left: 32px;
   }
-  #title_interaction_bar{border-bottom: 1px solid #e1e1e1;}
+  .title_interaction_bar{border-bottom: 1px solid #e1e1e1;}
   #interaction_bar_top {
       padding: 0px 0%;
       border: 0px;
@@ -7861,7 +7870,7 @@ margin-top: 20px;}
       margin-left: 0%;
       margin-right: 0%;
   }
-  #title_interaction_bar {
+  .title_interaction_bar {
       font-size: 1.6em;
       width: 100%;
       margin: 0px;
@@ -8130,15 +8139,15 @@ margin-top: 20px;}
       left: 10%;
   }
   #cover_logo {
-      width: 50%;
+      width: 16%;
   }
   #cover_navigation_modules_header {
       margin-top: 15px;
       margin-bottom: 30px;
   }
   .box_modules_header {
-      width: 31%;
-      margin-bottom: 15px;
+      width: 51%;
+      margin-bottom: 0px;
   }
   .box_modules_header img {
       width: 60%;
@@ -8366,7 +8375,7 @@ width: 100%;
       font-size: .6em;
   }
   .name_menu_modules_header {
-      font-size: .5em;
+      font-size: 1em;
   }
   #welcome_login {
       font-size: 0.8em;
@@ -8376,7 +8385,7 @@ width: 100%;
   }
 /*HEADER*/
   #cover_logo {
-      width: 57%;
+      width: 18%;
   }
   #list_notification {
       width: 50%;
@@ -8492,7 +8501,7 @@ width: 100%;
       background-size: 9%;
       background-position: 9px 14px;
   }
-  #title_interaction_bar {
+  .title_interaction_bar {
       font-size: 1.0em;
   }
   .buttons_interaction_bar {

@@ -345,4 +345,34 @@ if ( ! function_exists('timezone_menu'))
 		return $menu.'</select>';
 	}
 }
+if ( ! function_exists('get_date_week'))
+{
+	function get_date_week($week,$year){
+		// Obtener la fecha del primer día de la semana
+		$first_day_timestamp = strtotime($year . 'W' . $week . '1'); // '0' representa el primer día de la semana (domingo)
+		$first_day_of_week = date('\D\e\l j F', $first_day_timestamp);
+		// Obtener la fecha del último día de la semana
+		$last_day_timestamp = strtotime($year . 'W' . $week . '7'); // '6' representa el último día de la semana (sábado)
+		$last_day_of_week = date('\A\l j  F', $last_day_timestamp);
+		
+		return array('start'=>$first_day_of_week,'end'=>$last_day_of_week);
+
+	}
+
+}
+if ( ! function_exists('get_all_date_weeks'))
+{
+	function get_all_date_weeks($year){
+
+		$date_weeks=array();
+		for($i=1;$i<=52;$i++){
+			$week_number=$i;
+			if($i<10)$week_number='0'.$week_number;
+			$week=get_date_week($week_number,$year);
+			$date_weeks[$week_number]=$week['start'].' '.$week['end'];
+		}
+		return $date_weeks;
+
+	}
+}
 ?>
