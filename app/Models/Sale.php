@@ -12,13 +12,16 @@ class Sale extends Model
     }
     function do_report($data){
         $choosed=$data['choosed'];
+        $fecha=$data['date'];
+        
+        
         $data_report=array();
-        switch($choosed){
+       switch($choosed){
             case 'kgs':
                 $this->kgs_saled_report();
                 break;
             case 'sales':
-                $data_report=$this->sales_report();
+                $data_report=$this->sales_report($fecha);
                 
                 break;
             case 'price':
@@ -33,17 +36,23 @@ class Sale extends Model
             
 
         }
-      
+        
         return $data_report;
 
     }
     function kgs_saled_report(){
 
     }
-    function sales_report(){
+    function sales_report($fecha, $offset=0, $limit=100){
+        $fecha=str_replace('_', ' ',$fecha);
+        $fecha=str_replace(".", "' and '",$fecha);
+        $fecha="create_date BETWEEN '$fecha'";
         $builder=$this->db->table('pos_order_line');
-        $builder->limit('10');
-        return $builder->get();
+        $builder->where($fecha);
+        $builder->limit($limit);
+		$builder->offset($offset);
+        var_dump($fecha);
+		return $builder->get();
 
     }
     function price_average_report(){

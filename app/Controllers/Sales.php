@@ -24,8 +24,8 @@ class Sales extends Private_area
     function get_report(){
         if($this->request->isAJAX()===true){
             $rawData = $this->request->getRawInput();
-           // $report_data=$this->Sale->do_report($rawData);
-            //var_dump($report_data);
+           $report_data=$this->Sale->do_report($rawData);
+           var_dump($report_data->getResult());
         }
 
     }

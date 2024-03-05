@@ -61,8 +61,9 @@ function save_users_form(module){
 function get_report(){
     $("#do_report").on('click',function(){
         let choosed=$("#report_choose").val();
+        let week=$("#week").val();
         if(choosed!=='0'){
-            do_report({choosed:choosed});
+            do_report({choosed:choosed,date:week});
 
         }else{
             $("#msjs").replaceWith(' <div class="title_interaction_bar" id="msjs">Selecciona un tipo de reporte!!!</div>');
@@ -75,6 +76,7 @@ function get_report(){
 
 function do_report(data){
     let module=$("#module").val();
+    progress_bar();
     $.ajax({
         method: "POST",
         url:module+"/Get-Report/",
@@ -87,5 +89,13 @@ function do_report(data){
 
         });
 
+
+}
+
+function progress_bar(data={title:'',txt:'',proges:'0'}){
+    $("#progress_bar").css('display','block');
+    let tipo =$( "#report_choose option:selected" ).text();
+    let fecha =$( "#week option:selected" ).text();
+    $("#txt_progres").replaceWith('<p id="txt_progres">'+data.txt+'</p> ');
 
 }

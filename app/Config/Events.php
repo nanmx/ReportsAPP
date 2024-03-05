@@ -22,7 +22,12 @@ use CodeIgniter\HotReloader\HotReloader;
  * Example:
  *      Events::on('create', [$myInstance, 'myMethod']);
  */
-
+Events::on(
+    'DBQuery',
+    static function (\CodeIgniter\Database\Query $query) {
+        log_message('info', (string) $query);
+    }
+);
 Events::on('pre_system', static function () {
     if (ENVIRONMENT !== 'testing') {
         if (ini_get('zlib.output_compression')) {
@@ -52,4 +57,7 @@ Events::on('pre_system', static function () {
             });
         }
     }
+
+
+
 });

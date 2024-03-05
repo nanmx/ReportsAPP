@@ -348,14 +348,19 @@ if ( ! function_exists('timezone_menu'))
 if ( ! function_exists('get_date_week'))
 {
 	function get_date_week($week,$year){
+		$meses_ES = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+		$meses_EN = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
 		// Obtener la fecha del primer día de la semana
 		$first_day_timestamp = strtotime($year . 'W' . $week . '1'); // '0' representa el primer día de la semana (domingo)
-		$first_day_of_week = date('\D\e\l j F', $first_day_timestamp);
+		$first_date_week = date('Y-m-d_H:i:s', $first_day_timestamp);
+		$first_day_of_week = date('\D\e\l j \d\e F', $first_day_timestamp);
+		$first_day_of_week= str_replace($meses_EN, $meses_ES, $first_day_of_week);
 		// Obtener la fecha del último día de la semana
 		$last_day_timestamp = strtotime($year . 'W' . $week . '7'); // '6' representa el último día de la semana (sábado)
-		$last_day_of_week = date('\A\l j  F', $last_day_timestamp);
-		
-		return array('start'=>$first_day_of_week,'end'=>$last_day_of_week);
+		$last_date_week = date('Y-m-d_H:i:s', $last_day_timestamp);
+		$last_day_of_week = date('\A\l j \d\e F', $last_day_timestamp);
+		$last_day_of_week= str_replace($meses_EN, $meses_ES, $last_day_of_week);
+		return array('start'=>$first_day_of_week,'end'=>$last_day_of_week,'date'=>$first_date_week.'.'.$last_date_week);
 
 	}
 
@@ -369,7 +374,7 @@ if ( ! function_exists('get_all_date_weeks'))
 			$week_number=$i;
 			if($i<10)$week_number='0'.$week_number;
 			$week=get_date_week($week_number,$year);
-			$date_weeks[$week_number]=$week['start'].' '.$week['end'];
+			$date_weeks[$week['date']]=$week['start'].' '.$week['end'];
 		}
 		return $date_weeks;
 

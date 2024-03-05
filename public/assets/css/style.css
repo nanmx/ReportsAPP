@@ -6924,6 +6924,9 @@ float: left;}
     color:#ec0c2a !important;
     font-size: 1.2em !important;
 }
+#progress_bar{
+    display: none;
+}
 /*5%*/
 /*********************************************
 Hoja de estilo principal de Cash and Control

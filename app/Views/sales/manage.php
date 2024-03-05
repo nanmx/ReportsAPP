@@ -31,12 +31,23 @@
                     </li>
                     <li  class="li_look_interaction_bar" >
                     <div class="input-group">
-                      <?php echo form_dropdown('week', $all_weeks, date('W'),array
-                    ('class'=>'custom-select'));?>
+                      <?php echo form_dropdown('week', $all_weeks, $current_week['date'],array
+                    ('class'=>'custom-select','id'=>'week'));?>
                      <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button" id="do_report">Generar</button>
                         </div>
                     </div>
+                    </li>
+                    <li class="li_look_interaction_bar">
+                        <div class="container" id="progress_bar">
+                        <h4 id="title_progres" >Generando reporte</h4>
+                        <p id="txt_progres"></p> 
+                        <div class="progress">
+                        <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                        50%
+                        </div>
+                        </div>
+                        </div>
                     </li>
                 </ul>
             </div>
