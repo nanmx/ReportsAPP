@@ -46,13 +46,15 @@ class Sale extends Model
     function sales_report($fecha, $offset=0, $limit=100){
         $fecha=str_replace('_', ' ',$fecha);
         $fecha=str_replace(".", "' and '",$fecha);
-        $fecha="create_date BETWEEN '$fecha'";
-        $builder=$this->db->table('pos_order_line');
+        $fecha="write_date BETWEEN '$fecha'";
+        $builder=$this->db->table('pos_order');
+        $builder->select('name, amount_total ');
+
         $builder->where($fecha);
-        $builder->limit($limit);
-		$builder->offset($offset);
-        var_dump($fecha);
-		return $builder->get();
+        $builder->orderBy('name');
+        /*$builder->limit($limit);
+		$builder->offset($offset);*/
+		return $builder->get()->getResult();
 
     }
     function price_average_report(){

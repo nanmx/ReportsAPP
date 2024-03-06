@@ -76,7 +76,15 @@ function get_report(){
 
 function do_report(data){
     let module=$("#module").val();
-    progress_bar();
+    let bar={title:'Generando reporte de '+$( "#report_choose option:selected" ).text(),txt:$( "#week option:selected" ).text(),proges:'0'}
+    let valu=setInterval(function() { 
+        
+        valu++;
+        bar={title:'Generando reporte de '+$( "#report_choose option:selected" ).text(),txt:$( "#week option:selected" ).text(),proges:valu}
+        progress_bar(bar);
+    }, 500);
+    
+  
     $.ajax({
         method: "POST",
         url:module+"/Get-Report/",
@@ -86,6 +94,9 @@ function do_report(data){
         delay: 1,
         cache: false
         }).done(function(data){
+            clearInterval(valu);
+            let bar={title:'Reporte de '+$( "#report_choose option:selected" ).text()+' Listo',txt:$( "#week option:selected" ).text(),proges:'100'}
+    progress_bar(bar);
 
         });
 
@@ -96,6 +107,9 @@ function progress_bar(data={title:'',txt:'',proges:'0'}){
     $("#progress_bar").css('display','block');
     let tipo =$( "#report_choose option:selected" ).text();
     let fecha =$( "#week option:selected" ).text();
+    $("#title_progres").replaceWith(' <h4 id="title_progres" >'+data.title+'</h4> ');
     $("#txt_progres").replaceWith('<p id="txt_progres">'+data.txt+'</p> ');
+    $("#progress-bar").replaceWith('<div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="'+data.proges+'" aria-valuemin="0" aria-valuemax="100" style="width:'+data.proges+'%">'+data.proges+'%</div>');
 
+    
 }
