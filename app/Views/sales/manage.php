@@ -4,7 +4,7 @@
         <div id="cover_interaction_bar">
             <div id="interaction_bar_top">
                 <div class="title_interaction_bar" >
-               <?=  Lang("Modules.".strtolower( $controller_name."_nav"));?>
+            <h1>   <?=  Lang("Modules.".strtolower( $controller_name."_nav"));?></h1>
                 </div>
                 
             </div>
@@ -53,6 +53,13 @@
             </div>
         </div>
         <div id="table_holder">
+          <div class="container" id="result_report">
+            <h3 id="title_report"></h3>
+            
+           
+          
+          </div>
+
         </div>
         <div class="box-pagination">
         </div>

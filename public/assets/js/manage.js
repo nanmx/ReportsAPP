@@ -77,12 +77,15 @@ function get_report(){
 function do_report(data){
     let module=$("#module").val();
     let bar={title:'Generando reporte de '+$( "#report_choose option:selected" ).text(),txt:$( "#week option:selected" ).text(),proges:'0'}
-    let valu=setInterval(function() { 
+    valu=0;
+    const  myInterval=setInterval(function() { 
         
         valu++;
-        bar={title:'Generando reporte de '+$( "#report_choose option:selected" ).text(),txt:$( "#week option:selected" ).text(),proges:valu}
-        progress_bar(bar);
-    }, 500);
+        if(valu<99){
+            bar={title:'Generando reporte de '+$( "#report_choose option:selected" ).text(),txt:$( "#week option:selected" ).text(),proges:valu,state:'progress-bar-animated'}
+            progress_bar(bar);
+        }
+    }, 1500);
     
   
     $.ajax({
@@ -94,22 +97,26 @@ function do_report(data){
         delay: 1,
         cache: false
         }).done(function(data){
-            clearInterval(valu);
-            let bar={title:'Reporte de '+$( "#report_choose option:selected" ).text()+' Listo',txt:$( "#week option:selected" ).text(),proges:'100'}
-    progress_bar(bar);
+            if(data.success){
+                clearInterval(myInterval);
+                let bar={title:'Reporte de '+$( "#report_choose option:selected" ).text()+' Listo',txt:$( "#week option:selected" ).text(),proges:'100',state:'bg-success'}
+                progress_bar(bar);
+                $("#result_report").css('display','block');
+                $("#result_report").append(data.report);
+            }
 
         });
 
 
 }
 
-function progress_bar(data={title:'',txt:'',proges:'0'}){
+function progress_bar(data={title:'',txt:'',proges:'0',state:'progress-bar-animated'}){
     $("#progress_bar").css('display','block');
     let tipo =$( "#report_choose option:selected" ).text();
     let fecha =$( "#week option:selected" ).text();
     $("#title_progres").replaceWith(' <h4 id="title_progres" >'+data.title+'</h4> ');
     $("#txt_progres").replaceWith('<p id="txt_progres">'+data.txt+'</p> ');
-    $("#progress-bar").replaceWith('<div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="'+data.proges+'" aria-valuemin="0" aria-valuemax="100" style="width:'+data.proges+'%">'+data.proges+'%</div>');
+    $("#progress-bar").replaceWith('<div id="progress-bar" class="progress-bar progress-bar-striped '+data.state+'" role="progressbar" aria-valuenow="'+data.proges+'" aria-valuemin="0" aria-valuemax="100" style="width:'+data.proges+'%">'+data.proges+'%</div>');
 
     
 }

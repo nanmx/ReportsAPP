@@ -6927,6 +6927,22 @@ float: left;}
 #progress_bar{
     display: none;
 }
+#report_grid{
+
+    border: 1px solid #273540;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #a7d8be;
+
+}
+.grid_result{
+    border: 1px solid #196653;
+    background-color: #ccc;
+}
+#result_report{
+
+    display: none;
+}
 /*5%*/
 /*********************************************
 Hoja de estilo principal de Cash and Control
