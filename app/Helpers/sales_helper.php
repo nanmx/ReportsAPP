@@ -18,8 +18,11 @@ if ( ! function_exists('get_table_report')){
 if ( ! function_exists('get_table_rows')){
     function get_table_rows($rows){
         $html=' <div class="row grid_result">';
-        foreach($rows as $i=>$row){
-            $html.=get_table_row($i,$row);
+        foreach($rows as $sucursal=>$monto){
+            $html.=' <div class="col-sm">'.$sucursal;
+            $html.='</div>';
+            $html.=' <div class="col-sm">'.$monto;
+            $html.='</div>';
         }
         $html.='</div>';
         return $html;
@@ -30,7 +33,6 @@ if ( ! function_exists('get_table_row')){
       
        
 
-        $html=' <div class="col-sm">'.$row;
-        $html.='</div>';
+        
         return $html;
     }}

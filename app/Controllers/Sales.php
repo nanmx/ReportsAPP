@@ -28,27 +28,27 @@ class Sales extends Private_area
             $rawData = $this->request->getRawInput();
            $report_data=$this->Sale->do_report($rawData);
            $format_data["headers"]=array("Sucursal","Semana Anterior","Presupuesto"," Semana Actual","Diferencia");
-           $format_data["rows"]=$report_data;
-           
+         //  $format_data["rows"]=$report_data;
+         $format_data["rows"]=array();
            foreach($report_data as $report){
-                $sucursal=preg_replace('/\/\d+\s*[\w\s]*$/', '', $report->name);
+                $sucursal=preg_replace('/\/\d+\s*/', '', $report->name);
                 $amount=floatval($report->amount_total);
                // var_dump($sucursal);
               //  var_dump($amount);
             
-                if (!array_key_exists(url_title($sucursal), $format_data)) {
-                    $format_data['rows'][url_title($sucursal)]=0;
+                if (array_key_exists(url_title($sucursal), $format_data['rows'])) {
+                  
                     $format_data['rows'][url_title($sucursal)]+=$amount;
                   
                 }else{
-                    $format_data['rows'][url_title($sucursal)]=+$amount;
+                    $format_data['rows'][url_title($sucursal)]=$amount;
                 }
                 
            }
-           $report_html=get_table_report($format_data);
-         //  var_dump($report_data);
-          // var_dump($format_data);
-          echo json_encode(array('success'=>true,'report'=>$report_html));
+          $report_html=get_table_report($format_data);
+        //  var_dump($format_data);
+          //var_dump($report_data);
+         echo json_encode(array('success'=>true,'report'=>$report_html));
         }
 
     }
