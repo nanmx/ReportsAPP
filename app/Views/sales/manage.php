@@ -31,7 +31,7 @@
                     </li>
                     <li  class="li_look_interaction_bar" >
                     <div class="input-group">
-                      <?php echo form_dropdown('week', $all_weeks, $current_week['date'],array
+                      <?php echo form_dropdown('week', $all_weeks, $current_week,array
                     ('class'=>'custom-select','id'=>'week'));?>
                      <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button" id="do_report">Generar</button>

@@ -12,17 +12,22 @@ class Sale extends Model
     }
     function do_report($data){
         $choosed=$data['choosed'];
-        $fecha=$data['date'];
-        
+        $current_week=$data['current_week'];
+        $last_week=$data['last_week'];
+        $current_week=str_replace('_', ' ',$current_week);
+        $current_week=str_replace(".", "' and '",$current_week);
+        $last_week=str_replace('_', ' ',$last_week);
+        $last_week=str_replace(".", "' and '",$last_week);
         
         $data_report=array();
        switch($choosed){
             case 'kgs':
-                $this->kgs_saled_report();
+                $data_report['current']=  $this->kgs_saled_report($current_week);
+                $data_report['last']=  $this->kgs_saled_report($last_week);
                 break;
             case 'sales':
-                $data_report=$this->sales_report($fecha);
-                
+                $data_report['current']=$this->sales_report($current_week);
+                $data_report['last']=$this->sales_report($last_week);
                 break;
             case 'price':
                 $this->price_average_report();
@@ -40,15 +45,24 @@ class Sale extends Model
         return $data_report;
 
     }
-    function kgs_saled_report(){
+    function kgs_saled_report($fecha, $offset=0, $limit=100){
+       
+        $fecha="write_date BETWEEN '$fecha'";
+        $builder=$this->db->table('pos_order_line');
+        $builder->select('name, qty as amount ');
+
+        $builder->where($fecha);
+        $builder->orderBy('name');
+        /*$builder->limit($limit);
+		$builder->offset($offset);*/
+		return $builder->get()->getResult();
 
     }
     function sales_report($fecha, $offset=0, $limit=100){
-        $fecha=str_replace('_', ' ',$fecha);
-        $fecha=str_replace(".", "' and '",$fecha);
+       
         $fecha="write_date BETWEEN '$fecha'";
         $builder=$this->db->table('pos_order');
-        $builder->select('name, amount_total ');
+        $builder->select('name, amount_total as amount');
 
         $builder->where($fecha);
         $builder->orderBy('name');

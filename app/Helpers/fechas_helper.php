@@ -350,6 +350,7 @@ if ( ! function_exists('get_date_week'))
 	function get_date_week($week,$year){
 		$meses_ES = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
 		$meses_EN = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+		if($week<10)$week='0'.$week;
 		// Obtener la fecha del primer día de la semana
 		$first_day_timestamp = strtotime($year . 'W' . $week . '1'); // '0' representa el primer día de la semana (domingo)
 		$first_date_week = date('Y-m-d_H:i:s', $first_day_timestamp);
@@ -372,9 +373,9 @@ if ( ! function_exists('get_all_date_weeks'))
 		$date_weeks=array();
 		for($i=1;$i<=52;$i++){
 			$week_number=$i;
-			if($i<10)$week_number='0'.$week_number;
+			
 			$week=get_date_week($week_number,$year);
-			$date_weeks[$week['date']]=$week['start'].' '.$week['end'];
+			$date_weeks[$week_number.'-'.$year]=$week['start'].' '.$week['end'];
 		}
 		return $date_weeks;
 

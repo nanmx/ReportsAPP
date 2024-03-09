@@ -6936,7 +6936,7 @@ float: left;}
 
 }
 .grid_result{
-    border: 1px solid #196653;
+    border: 0.4px dotted #b0b1af;
     background-color: #ccc;
 }
 #result_report{
