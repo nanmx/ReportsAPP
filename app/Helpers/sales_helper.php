@@ -27,7 +27,7 @@ if ( ! function_exists('get_table_rows')){
             $html.='</div>';
             $html.=' <div class="col-sm">X';
             $html.='</div>';
-            $html.=' <div class="col-sm">'.$monto['last'];
+            $html.=' <div class="col-sm">y';
             $html.='</div>';
             $html.=' <div class="col-sm">'.$monto['current'];
             $html.='</div>';

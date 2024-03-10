@@ -38,10 +38,17 @@ class Sales extends Private_area
            $format_data["headers"]=array("Sucursal","Semana Anterior","Presupuesto"," Semana Actual","Diferencia");
          //  $format_data["rows"]=$report_data;
          $format_data["rows"]=array();
-         
-           foreach($report_data['current'] as $report){
-                $sucursal=preg_replace('/\/\d+\s*/', '', $report->name);
-                $amount=floatval($report->amount);
+         $current=(array) $report_data['current'];
+         $last=(array) $report_data['last'];
+         $result=array_merge($current, $last);
+       /*  foreach($current as $i =>$v){
+              $v['amount_last']=$last[$i]['amount_last'];
+              $current [$i]=$v;
+         }*/
+
+         //  foreach($report_data['current'] as $report){
+              //  $sucursal=preg_replace('/\/\d+\s*/', '', $report['name']);
+                /*$amount=floatval($report['amount_current']);
                // var_dump($sucursal);
               //  var_dump($amount);
             
@@ -55,10 +62,11 @@ class Sales extends Private_area
                     
                 }
                 
-           }
-           foreach($report_data['last'] as $report){
-            $sucursal=preg_replace('/\/\d+\s*/', '', $report->name);
-            $amount=floatval($report->amount);
+           }*/
+           var_dump($result);
+           //foreach($report_data['last'] as $report){
+         //   $sucursal=preg_replace('/\/\d+\s*/', '', $report->name);
+         /*   $amount=floatval($report->amount);
            // var_dump($sucursal);
           //  var_dump($amount);
         
@@ -75,7 +83,7 @@ class Sales extends Private_area
                
             }
             
-       }
+       }*/
           $report_html=get_table_report($format_data,$rawData['choosed']);
         //  var_dump($format_data);
           //var_dump($report_data);

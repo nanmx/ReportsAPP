@@ -22,12 +22,12 @@ class Sale extends Model
         $data_report=array();
        switch($choosed){
             case 'kgs':
-                $data_report['current']=  $this->kgs_saled_report($current_week);
-                $data_report['last']=  $this->kgs_saled_report($last_week);
+                $data_report['current']=  $this->kgs_saled_report($current_week,'current');
+                $data_report['last']=  $this->kgs_saled_report($last_week,'last');
                 break;
             case 'sales':
-                $data_report['current']=$this->sales_report($current_week);
-                $data_report['last']=$this->sales_report($last_week);
+                $data_report['current']=$this->sales_report($current_week,'current');
+                $data_report['last']=$this->sales_report($last_week,'last');
                 break;
             case 'price':
                 $this->price_average_report();
@@ -45,30 +45,30 @@ class Sale extends Model
         return $data_report;
 
     }
-    function kgs_saled_report($fecha, $offset=0, $limit=100){
+    function kgs_saled_report($fecha,$type, $offset=0, $limit=100){
        
         $fecha="write_date BETWEEN '$fecha'";
         $builder=$this->db->table('pos_order_line');
-        $builder->select('name, qty as amount ');
+        $builder->select('name, qty as amount_'.$type);
 
         $builder->where($fecha);
         $builder->orderBy('name');
         /*$builder->limit($limit);
 		$builder->offset($offset);*/
-		return $builder->get()->getResult();
+		return $builder->get()->getResultArray();
 
     }
-    function sales_report($fecha, $offset=0, $limit=100){
+    function sales_report($fecha, $type, $offset=0, $limit=100){
        
         $fecha="write_date BETWEEN '$fecha'";
         $builder=$this->db->table('pos_order');
-        $builder->select('name, amount_total as amount');
+        $builder->select("name, amount_total as amount_$type");
 
         $builder->where($fecha);
         $builder->orderBy('name');
         /*$builder->limit($limit);
 		$builder->offset($offset);*/
-		return $builder->get()->getResult();
+		return $builder->get()->getResultArray();
 
     }
     function price_average_report(){
