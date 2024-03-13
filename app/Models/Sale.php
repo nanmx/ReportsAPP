@@ -61,7 +61,7 @@ class Sale extends Model
     function sales_report($fecha, $type, $offset=0, $limit=100){
        
         $fecha="write_date BETWEEN '$fecha'";
-        $builder=$this->db->table('pos_order');
+        $builder=$this->db->table('sale_order');
         $builder->select("name, amount_total as amount_$type");
 
         $builder->where($fecha);
