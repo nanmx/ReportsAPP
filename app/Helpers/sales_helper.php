@@ -20,16 +20,23 @@ if ( ! function_exists('get_table_rows')){
         $html='';
         foreach($rows as $sucursal=>$monto){
            // if($type==='sales')$monto=to_currency($monto[],'MXN');
-          //  $diferencia=$monto['current']-$monto['last'];
-          $diferencia=0;
+           $diferencia=$monto['current']-$monto['last'];
+           $last=$monto['last'];
+           $current=$monto['current'];
+           if($type==='sales'){
+                $last=to_currency($last,'MXN');
+                $current=to_currency($current,'MXN');
+                $diferencia=to_currency($diferencia,'MXN');
+            }
+      //    $diferencia=0;
             $html.=' <div class="row grid_result">';
             $html.=' <div class="col-sm">'.$sucursal;
             $html.='</div>';
-            $html.=' <div class="col-sm">X';
+            $html.=' <div class="col-sm">'.$last;
             $html.='</div>';
             $html.=' <div class="col-sm">y';
             $html.='</div>';
-            $html.=' <div class="col-sm">'.$monto['current'];
+            $html.=' <div class="col-sm">'.$current;
             $html.='</div>';
             $html.=' <div class="col-sm">'.$diferencia;
             $html.='</div>';

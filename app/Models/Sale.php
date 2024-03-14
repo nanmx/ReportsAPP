@@ -63,7 +63,7 @@ class Sale extends Model
         $fecha="write_date BETWEEN '$fecha'";
         $builder=$this->db->table('sale_order');
         $builder->select("name, amount_total as amount_$type");
-
+        $builder->where('state!=','cancel');
         $builder->where($fecha);
         $builder->orderBy('name');
         /*$builder->limit($limit);

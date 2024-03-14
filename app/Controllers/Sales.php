@@ -48,7 +48,7 @@ class Sales extends Private_area
             $format_data['rows'][url_title($sucursal)]=array('current'=>0,'last'=>0);
           }
             if(isset($result['amount_current']))$format_data['rows'][url_title($sucursal)]['current']+=floatval($result['amount_current']);
-           // if(isset($result['amount_last']))$format_data['rows'][url_title($sucursal)]['last']+=floatval($result['amount_last']);
+            if(isset($result['amount_last']))$format_data['rows'][url_title($sucursal)]['last']+=floatval($result['amount_last']);
          }
        /*  foreach($current as $i =>$v){
               $v['amount_last']=$last[$i]['amount_last'];
@@ -72,7 +72,7 @@ class Sales extends Private_area
                 }
                 
            }*/
-           var_dump($format_data);
+         //  var_dump($format_data);
            //foreach($report_data['last'] as $report){
          //   $sucursal=preg_replace('/\/\d+\s*/', '', $report->name);
          /*   $amount=floatval($report->amount);
@@ -93,10 +93,10 @@ class Sales extends Private_area
             }
             
        }*/
-        //  $report_html=get_table_report($format_data,$rawData['choosed']);
+          $report_html=get_table_report($format_data,$rawData['choosed']);
         //  var_dump($format_data);
           //var_dump($report_data);
-         echo json_encode(array('success'=>true,'report'=>''));
+         echo json_encode(array('success'=>true,'report'=>$report_html));
         }
 
     }
