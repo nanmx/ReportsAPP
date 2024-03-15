@@ -4,6 +4,7 @@
 return [
     'home_nav'=>'Panel Principal',
     'users_nav'=>'Modulo Usuarios',
-    'sales_nav'=>'Reporte Ventas'
+    'sales_nav'=>'Reporte Ventas',
+    'budgets_nav'=>'Modulo Presupuestos'
 
 ];

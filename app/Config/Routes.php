@@ -14,3 +14,4 @@ $routes->add('Modulo-Usuarios', 'Users::index', ['as' => 'Modulo-Usuarios']);
 $routes->add('Modulo-Usuarios/Save/(:any)', 'Users::save/$1');
 $routes->add('Reporte-Ventas', 'Sales::index', ['as' => 'Reporte-Ventas']);
 $routes->add('Reporte-Ventas/Get-Report/', 'Sales::get_report');
+$routes->add('Modulo-Presupuestos', 'Budgets::index', ['as' => 'Modulo-Presupuestos']);

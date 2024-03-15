@@ -36,7 +36,8 @@ class Sale extends Model
                 $this->cost_average_report();
                 break;
             case 'profit':
-                $this->profit_report();
+                $data_report['current']=$this->profit_report($current_week,'current');
+                $data_report['last']=$this->profit_report($last_week,'last');
                 break;
             
 
@@ -48,11 +49,11 @@ class Sale extends Model
     function kgs_saled_report($fecha,$type, $offset=0, $limit=100){
        
         $fecha="write_date BETWEEN '$fecha'";
-        $builder=$this->db->table('pos_order_line');
-        $builder->select('name, qty as amount_'.$type);
-
+        $builder=$this->db->table('stock_move');
+        $builder->select('reference as name, product_qty as amount_'.$type);
+        $builder->where('sale_line_id !=',NULL);
         $builder->where($fecha);
-        $builder->orderBy('name');
+        $builder->orderBy('reference');
         /*$builder->limit($limit);
 		$builder->offset($offset);*/
 		return $builder->get()->getResultArray();
@@ -77,7 +78,16 @@ class Sale extends Model
     function cost_average_report(){
 
     } 
-    function profit_report(){
+    function profit_report($fecha, $type, $offset=0, $limit=100){
+        $fecha="write_date BETWEEN '$fecha'";
+        $builder=$this->db->table('sale_order');
+        $builder->select("name, margin as amount_$type");
+        $builder->where('state!=','cancel');
+        $builder->where($fecha);
+        $builder->orderBy('name');
+        /*$builder->limit($limit);
+		$builder->offset($offset);*/
+		return $builder->get()->getResultArray();
 
     }
 }

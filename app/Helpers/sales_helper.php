@@ -23,7 +23,7 @@ if ( ! function_exists('get_table_rows')){
            $diferencia=$monto['current']-$monto['last'];
            $last=$monto['last'];
            $current=$monto['current'];
-           if($type==='sales'){
+           if($type==='sales' || $type==='profit'){
                 $last=to_currency($last,'MXN');
                 $current=to_currency($current,'MXN');
                 $diferencia=to_currency($diferencia,'MXN');

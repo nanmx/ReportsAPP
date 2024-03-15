@@ -102,6 +102,7 @@ function do_report(data){
                 let bar={title:'Reporte de '+$( "#report_choose option:selected" ).text()+' Listo',txt:$( "#week option:selected" ).text(),proges:'100',state:'bg-success'}
                 progress_bar(bar);
                 $("#result_report").css('display','block');
+                $("#result_report").append('<h4>'+bar.title+'</h4>');
                 $("#result_report").append(data.report);
             }
 
