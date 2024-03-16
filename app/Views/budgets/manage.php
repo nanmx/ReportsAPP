@@ -9,7 +9,10 @@
                 
             </div>
             <div id="cover_buttons_interaction_bar">
-				
+					<?php echo anchor(url_title(Lang($controller_name.'.nav'))."/Form/-1",
+				"<div class='buttons_interaction_bar' title='Agregar Presupuesto' > <span>Agregar Presupuesto</span></div>",
+				array('class'=>'ajax-popup-link','data-toggle'=>'modal','data-target'=>'#form','data-whatever'=>'Agregar Presupuesto'));
+				?>
 			</div>
             <div id="interaction_bar_bottom">
             <div class="title_interaction_bar" id="msjs">
@@ -65,20 +68,56 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="recipient-first_name" id="first_name_label" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" id="first_name" name="in_first_name" placeholder="Escriba el nombre">
+            <label for="recipient-first_name" id="first_name_label" class="col-form-label">Tipo de presupuesto:</label>
+            <select class="custom-select" id="type">
+                        <option selected value="0">Seleccionar tipo...</option>
+                        <option value="kgs">Kilogramos</option>
+                        <option value="sales">Venta</option>
+                        <option value="price">Precio</option>
+                        <option value="cost">Costo</option>
+                        <option value="profit">Margen de utilidad por venta</option>
+                        </select>
           </div>
           <div class="form-group">
-            <label for="recipient-last_name" id="last_name_label" class="col-form-label">Apellido:</label>
-            <input type="text" class="form-control" id="last_name" name="in_last_name" placeholder="Escriba el apellido">
+            <label for="recipient-last_name" id="last_name_label" class="col-form-label">Mes:</label>
+            <select class="custom-select" id="month">
+                        <option selected value="0">Seleccionar mes...</option>
+                        <option value="01">Enero</option>
+                        <option value="02">Febrero</option>
+                        <option value="03">Marzo</option>
+                        <option value="04">Abril</option>
+                        <option value="05">Mayo</option>
+                        <option value="06">Junio</option>
+                        <option value="07">Julio</option>
+                        <option value="08">Agosto</option>
+                        <option value="09">Septiembre</option>
+                        <option value="10">Octubre</option>
+                        <option value="11">Noviembre</option>
+                        <option value="12">Diciembre</option>
+                        </select>
           </div>
           <div class="form-group">
-            <label for="recipient-username" id="username_label" class="col-form-label"> Usuario:</label>
-            <input type="text" class="form-control" id="username" name="in_username" placeholder="Escriba el nombre de usuario">
+            <label for="recipient-username" id="username_label" class="col-form-label"> Año:</label>
+            <select name="year" class="custom-select" id="year">
+                <?php
+                // Obtiene el año actual
+                $current_year = date("Y");
+
+                // Imprime las opciones para los próximos 15 años
+                for ($i = 0; $i < 15; $i++) {
+                $year = $current_year + $i;
+                if($current_year==$year){
+                  echo "<option selected value='$year'>$year</option>";
+                  }else{
+                echo "<option value='$year'>$year</option>";
+                  }
+                }
+                ?>
+                </select>
           </div>
           <div class="form-group">
-            <label for="recipient-password" id="password_label" class="col-form-label">Contraseña:</label>
-            <input type="password" class="form-control" id="password" name="in_password" placeholder="Escriba la contraseña">
+            <label for="recipient-budget" id="budget_label" class="col-form-label">Presupuesto:</label>
+            <input type="text" class="form-control" id="budget" name="in_budget" placeholder="Escriba el presupuesto">
           </div>
           <div class="form-group">
          
