@@ -381,4 +381,39 @@ if ( ! function_exists('get_all_date_weeks'))
 
 	}
 }
+
+if ( ! function_exists('get_next_years'))
+{
+	function get_next_years(){
+		$years=array();
+		 // Obtiene el año actual
+		 $current_year = date("Y");
+
+		 // Imprime las opciones para los próximos 15 años
+		 for ($i = 0; $i < 15; $i++) {
+			$year = $current_year + $i;
+			$years[$year]=$year;
+		 }
+		return $years;
+
+	}
+}
+if ( ! function_exists('get_next_months'))
+{
+	function get_next_months(){
+		$meses_ES = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+		$meses_EN = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+		$months=array();
+		 // Obtiene el año actual
+		 $current_month = date("m");
+
+		 // Imprime las opciones para los próximos 15 años
+		 for ($i = 0; $i < 15; $i++) {
+			$year = $current_year + $i;
+			$years[$year]=$year;
+		 }
+		return $months;
+
+	}
+}
 ?>

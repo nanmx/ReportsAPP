@@ -67,6 +67,13 @@
       </div>
       <div class="modal-body">
         <form>
+            <div class="form-group">
+            <label for="recipient-first_name" id="first_name_label" class="col-form-label">Sucursal:</label>
+            <select class="custom-select" id="type">
+                        <option selected value="0">Seleccionar sucursal...</option>
+                        <option value="MTRZ">Matriz</option>
+                        </select>
+          </div>
           <div class="form-group">
             <label for="recipient-first_name" id="first_name_label" class="col-form-label">Tipo de presupuesto:</label>
             <select class="custom-select" id="type">
@@ -98,22 +105,9 @@
           </div>
           <div class="form-group">
             <label for="recipient-username" id="username_label" class="col-form-label"> Año:</label>
-            <select name="year" class="custom-select" id="year">
-                <?php
-                // Obtiene el año actual
-                $current_year = date("Y");
-
-                // Imprime las opciones para los próximos 15 años
-                for ($i = 0; $i < 15; $i++) {
-                $year = $current_year + $i;
-                if($current_year==$year){
-                  echo "<option selected value='$year'>$year</option>";
-                  }else{
-                echo "<option value='$year'>$year</option>";
-                  }
-                }
-                ?>
-                </select>
+            <?php echo form_dropdown('year', $years, date("Y"),array
+                    ('class'=>'custom-select','id'=>'year'));?>
+           
           </div>
           <div class="form-group">
             <label for="recipient-budget" id="budget_label" class="col-form-label">Presupuesto:</label>
