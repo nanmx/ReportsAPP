@@ -401,16 +401,16 @@ if ( ! function_exists('get_next_years'))
 if ( ! function_exists('get_next_months'))
 {
 	function get_next_months(){
-		$meses_ES = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
-		$meses_EN = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+		$meses = array('01'=>"Enero",'02'=>"Febrero", '03'=>"Marzo", '04'=>"Abril",'05'=> "Mayo", '06'=>"Junio", '07'=>"Julio", '08'=>"Agosto", '09'=>"Septiembre", '10'=>"Octubre", '11'=>"Noviembre", '12'=>"Diciembre");
 		$months=array();
 		 // Obtiene el año actual
 		 $current_month = date("m");
-
+		 $current_month=intval($current_month);
 		 // Imprime las opciones para los próximos 15 años
-		 for ($i = 0; $i < 15; $i++) {
-			$year = $current_year + $i;
-			$years[$year]=$year;
+		 for ($i = $current_month; $i < 13; $i++) {
+			$month=$i;
+			if($month<10)$month='0'.$month;
+			$months[$month]=$meses[$month];
 		 }
 		return $months;
 

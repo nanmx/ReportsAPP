@@ -68,14 +68,14 @@
       <div class="modal-body">
         <form>
             <div class="form-group">
-            <label for="recipient-first_name" id="first_name_label" class="col-form-label">Sucursal:</label>
-            <select class="custom-select" id="type">
+            <label for="recipient-sucursal" id="sucursal_label" class="col-form-label">Sucursal:</label>
+            <select class="custom-select" id="sucursal">
                         <option selected value="0">Seleccionar sucursal...</option>
                         <option value="MTRZ">Matriz</option>
                         </select>
           </div>
           <div class="form-group">
-            <label for="recipient-first_name" id="first_name_label" class="col-form-label">Tipo de presupuesto:</label>
+            <label for="recipient-type" id="type_label" class="col-form-label">Tipo de presupuesto:</label>
             <select class="custom-select" id="type">
                         <option selected value="0">Seleccionar tipo...</option>
                         <option value="kgs">Kilogramos</option>
@@ -87,21 +87,8 @@
           </div>
           <div class="form-group">
             <label for="recipient-last_name" id="last_name_label" class="col-form-label">Mes:</label>
-            <select class="custom-select" id="month">
-                        <option selected value="0">Seleccionar mes...</option>
-                        <option value="01">Enero</option>
-                        <option value="02">Febrero</option>
-                        <option value="03">Marzo</option>
-                        <option value="04">Abril</option>
-                        <option value="05">Mayo</option>
-                        <option value="06">Junio</option>
-                        <option value="07">Julio</option>
-                        <option value="08">Agosto</option>
-                        <option value="09">Septiembre</option>
-                        <option value="10">Octubre</option>
-                        <option value="11">Noviembre</option>
-                        <option value="12">Diciembre</option>
-                        </select>
+            <?php echo form_dropdown('months', $months, date("m"),array
+                    ('class'=>'custom-select','id'=>'months'));?>
           </div>
           <div class="form-group">
             <label for="recipient-username" id="username_label" class="col-form-label"> Año:</label>
