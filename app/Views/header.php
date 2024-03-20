@@ -93,6 +93,9 @@ if(module==="Users"){
 }else if(module==="Sales"){
 get_report();
 
+}else if(module==="Budgets"){
+	module="<?php echo  url_title(Lang("Modules.".strtolower($controller_name)."_nav"));  ?>";
+	save_budgets_form(module);
 }
 	$("#content_area_wrapper").on("click",function()
 				{

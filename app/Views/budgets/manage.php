@@ -87,8 +87,8 @@
           </div>
           <div class="form-group">
             <label for="recipient-last_name" id="last_name_label" class="col-form-label">Mes:</label>
-            <?php echo form_dropdown('months', $months, date("m"),array
-                    ('class'=>'custom-select','id'=>'months'));?>
+            <?php echo form_dropdown('month', $months, date("m"),array
+                    ('class'=>'custom-select','id'=>'month'));?>
           </div>
           <div class="form-group">
             <label for="recipient-username" id="username_label" class="col-form-label"> Año:</label>

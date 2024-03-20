@@ -106,13 +106,14 @@ ALTER TABLE public.users OWNER TO postgres;
 CREATE TABLE public.budgets (
     budget_id integer NOT NULL,
     budget numeric DEFAULT 0 NOT NULL,
-    fecha date NOT NULL,
+    fecha date DEFAULT CURRENT_TIMESTAMP NOT NULL,
     type character varying(255) NOT NULL,
     sucursal character varying(255) NOT NULL,
     state integer   DEFAULT 0,
     month integer NOT NULL,
     year integer NOT NULL
 );
+
 --
 ALTER TABLE public.budgets OWNER TO postgres;
 -- Data for Name: app_config; Type: TABLE DATA; Schema: public; Owner: postgres

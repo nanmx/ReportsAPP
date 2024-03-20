@@ -23,4 +23,17 @@ class Budgets extends Private_area
         echo view('budgets/manage', $data);
 
     }
+    function save($budget_id=-1){
+		if($this->request->isAJAX()===true){
+            $rawData = $this->request->getRawInput();
+            $budget_id_int = 0;
+            $cadena=$rawData['sucursal'].$rawData['type'];
+            for ($i = 0; $i < strlen($cadena); $i++) {
+                // Sumar el valor ASCII de cada carácter
+                $budget_id_int += ord($cadena[$i]);
+            }
+            $rawData['budget_id']=$rawData['year'].$rawData['month'].$budget_id_int;
+            var_dump($rawData);
+        }
+    }
 }

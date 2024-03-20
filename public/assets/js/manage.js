@@ -61,31 +61,56 @@ function validation_budgets_form(){
     let condition = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#\_\-\{\}\(\)\[\]])[A-Za-z\d@$!%*?&#\_\-\{\}\(\)\[\]]{5,}$/;
     let password=$.trim($("#password").val());
     if($.trim($("#sucursal").val())==="0"){
-        $("#sucursal_label").replaceWith('<label for="recipient-sucursal" id="sucursal_label" class="col-form-label" style="color:red">Selecciona la sucursal :</label>');
+        $("#sucursal_label").replaceWith('<label for="recipient-sucursal" id="sucursal_label" class="col-form-label" style="color:red">Selecciona la sucursal </label>');
         $("#sucursal").focus();
         return false;
     }else if($.trim($("#type").val())==="0"){
-        $("#sucursal_label").replaceWith('<label for="recipient-sucursal" id="sucursal_label" class="col-form-label">Tipo de presupuesto:</label>');
-        $("#type_label").replaceWith('<label for="recipient-type" id="type_label" class="col-form-label" style="color:red">Selecciona el tipo de presupuesto:</label>');
+        $("#sucursal_label").replaceWith('<label for="recipient-sucursal" id="sucursal_label" class="col-form-label">Sucursal:</label>');
+        $("#type_label").replaceWith('<label for="recipient-type" id="type_label" class="col-form-label" style="color:red">Selecciona el tipo de presupuesto</label>');
         $("#type").focus();
         return false;
-    }else if($.trim($("#budget").val())===""){
-        $("#last_name_label").replaceWith('<label for="recipient-last_name" id="last_name_label" class="col-form-label">Apellido:</label>');
-        $("#budget_label").replaceWith('<label for="recipient-budget" id="budget_label" class="col-form-label" style="color:red">Escriba un nombre de usuario  :</label>');
+    }else if($.trim($("#budget").val())==="" || $.trim($("#budget").val())==="0"){
+        $("#type_label").replaceWith('<label for="recipient-type" id="type_label" class="col-form-label">Tipo de presupuesto:</label>');
+        $("#budget_label").replaceWith('<label for="recipient-budget" id="budget_label" class="col-form-label" style="color:red">Escriba el monto del presupuesto </label>');
         $("#budget").focus();
 
         return false;
     }
-    $("#password_label").replaceWith('<label for="recipient-password" id="password_label" class="col-form-label">Contraseña:</label>');
+    $("#budget_label").replaceWith('<label for="recipient-budget" id="budget_label" class="col-form-label">Presupuesto:</label>');
     let data={
-            'first_name': $("#first_name").val(),
-            'last_name': $("#last_name").val(),
-            'username': $("#username").val(),
-            'password': $("#password").val(),
+            'sucursal': $("#sucursal").val(),
+            'type': $("#type").val(),
+            'month': $("#month").val(),
+            'year': $("#year").val(),
+            'budget': $("#budget").val()
     }
     return data;
 }
+function save_budgets_form(module){
+    $("#save").on('click', function(){
+        let data=validation_budgets_form();
+        if(data!=false){
+            $.ajax(
+                {
+                method: "POST",
+                url:module+"/Save/-1",
+                dataType: 'json',
+                data: data,
+                minLength: 2,
+                delay: 1,
+                cache: false
+                }).done(function(data){
+                    console.log(data);
+                    if(data.success===true){
+                        $('#form').modal('hide')
 
+                
+                }
+            });
+        }
+    });
+
+}
 function get_report(){
     $("#do_report").on('click',function(){
         let choosed=$("#report_choose").val();
