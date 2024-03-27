@@ -20,6 +20,19 @@ class Budgets extends Private_area
         $data['controller_name']=$this->controller_name;
         $data['years']= get_next_years();
         $data['months']= get_next_months();
+        $total_rows = $this->User->count_all();
+		$per_page = $this->config_info['paginacion'];
+		$data['links']="";
+		$page=$this->request->getGet('page');
+		if($page===null)$page=0;
+		$offset=0;
+		if($page>0)$offset=$per_page*($page-1);
+		if($total_rows>$per_page){
+			$pager = \Config\Services::pager();
+			$pager->makeLinks($page,$per_page,$total_rows,'default_full');
+			$data['links']=	$pager->links();
+		}
+        $data['manage_table']=get_table_budgets($this->Budget->get_all($per_page, $offset),$this->controller_name);
         echo view('budgets/manage', $data);
 
     }
@@ -33,7 +46,11 @@ class Budgets extends Private_area
                 $budget_id_int += ord($cadena[$i]);
             }
             $rawData['budget_id']=$rawData['year'].$rawData['month'].$budget_id_int;
-            var_dump($rawData);
+            if( $this->Budget->guardar($rawData)){
+                echo json_encode(array("success"=>true));
+            }else{
+                echo json_encode(array("success"=>false));
+            }
         }
     }
 }

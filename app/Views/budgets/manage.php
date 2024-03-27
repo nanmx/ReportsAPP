@@ -44,13 +44,10 @@
             </div>
         </div>
         <div id="table_holder">
-          <div class="container" id="result_report">
-            <h3 id="title_report"></h3>
-            
-           
-          
-          </div>
-
+            <?php echo $manage_table; ?>
+        </div>
+        <div class="box-pagination">
+            <?= $links ?>
         </div>
         <div class="box-pagination">
         </div>

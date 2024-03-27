@@ -22,7 +22,7 @@
         <title>Reports  | <?php echo  Lang("Modules.".strtolower($controller_name)."_nav");  ?></title>
 <head>
 <body>
-    <header id="header_menu">
+    <header id="h_menu">
         <div class="accordion" id="accordion">
 			<div class="accordion-group">
 				<div class="accordion-heading">
@@ -42,7 +42,7 @@
 									<div  id="acco-group" class="accordion-group">
 										<div class="accordion-heading">
 											<a class="accordion-toggle "  id="c-tog-user"  data-toggle="collapse" data-parent="#accordion_user" href="#ans4">
-												<img class="" src="/assets/images/icon_cct/user-img-ico.svg">
+												<img  src="/assets/images/icon_cct/user-img-ico.svg">
 											</a>
 										</div>
 										<div id="ans4" class="accordion-body collapse">

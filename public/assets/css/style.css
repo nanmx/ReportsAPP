@@ -236,7 +236,7 @@ TOP_HOME-----------------------------*/
 /*---------------------------------
 ELEMENTOS DE LA BARRA DE NAVEGACION HEADER
 -------------------------------------*/
-#header_menu {
+#h_menu {
     position: relative;
     float: left;
     width: 100%;
@@ -505,12 +505,12 @@ body #box_name_user  #bnu_home {
     color: #fff;
 }
 /*accordion list user*/
-body #header_menu #accordion_user .accordion-heading ,
-body #header_menu #accordion_notification .accordion-heading {
+body #h_menu #accordion_user .accordion-heading ,
+body #h_menu #accordion_notification .accordion-heading {
     border: 0px;
 }
-body #header_menu #accordion_user .accordion-toggle,
-body #header_menu #accordion_notification .accordion-toggle {
+body #h_menu #accordion_user .accordion-toggle,
+body #h_menu #accordion_notification .accordion-toggle {
     padding-top: 0px;
     padding-bottom: 0px;
 }
@@ -8555,7 +8555,7 @@ margin: 19px 5% 0px -79%;
 #cover_ss_aside_tables{
 	display: none !important;
 }
-#header_menu{
+#h_menu{
 	display: none !important;
 }
 .file_det_rep {
@@ -8689,7 +8689,7 @@ padding-bottom: 60px;}
 	#content_area_wrapper{display:none;}
 	#cover_interaction_bar{display:none;}
 	/*#summary_sales_aside{display:none;}*/
-	#header_menu {display:none;}
+	#h_menu {display:none;}
 	#cover_btn_print{display:none;}
 	#table_detail_ticket,#txt_total_letras,#txt_total_num,.content_tablet_ticket,#cover_detail_ticket .detail_ticket,.file_detail_ticket, .file_det_ped,#cover_title_detail_ticket,#cabecera_1,#cabecera_2,#cabecera_3,#cabecera_4,#box_info_title, #box_info_big,  #cover_complete_pay, #cover_select_item_proccess, .cover_result_register_psr{
 			border: none;
