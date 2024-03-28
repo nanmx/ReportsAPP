@@ -24,9 +24,9 @@ if ( ! function_exists('get_table_rows')){
            $last=$monto['last'];
            $current=$monto['current'];
            if($type==='sales' || $type==='profit'){
-                $last=to_currency($last,'MXN');
-                $current=to_currency($current,'MXN');
-                $diferencia=to_currency($diferencia,'MXN');
+                $last=to_currency($last,'');
+                $current=to_currency($current,'');
+                $diferencia=to_currency($diferencia,'');
             }
       //    $diferencia=0;
             $html.=' <div class="row grid_result">';
