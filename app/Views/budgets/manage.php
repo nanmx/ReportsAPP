@@ -11,7 +11,7 @@
             <div id="cover_buttons_interaction_bar">
 					<?php echo anchor(url_title(Lang($controller_name.'.nav'))."/Form/-1",
 				"<div class='buttons_interaction_bar' title='Agregar Presupuesto' > <span>Agregar Presupuesto</span></div>",
-				array('class'=>'ajax-popup-link','data-toggle'=>'modal','data-target'=>'#form','data-whatever'=>'Agregar Presupuesto'));
+				array('class'=>'ajax-popup-link','data-toggle'=>'modal','data-target'=>'#form','data-whatever'=>'Nuevo Presupuesto'));
 				?>
 			</div>
             <div id="interaction_bar_bottom">
@@ -65,14 +65,14 @@
       <div class="modal-body">
         <form>
             <div class="form-group">
-            <label for="recipient-sucursal" id="sucursal_label" class="col-form-label">Sucursal:</label>
+            <label for="sucursal" id="sucursal_label" class="col-form-label">Sucursal:</label>
             <select class="custom-select" id="sucursal">
                         <option selected value="0">Seleccionar sucursal...</option>
                         <option value="MTRZ">Matriz</option>
                         </select>
           </div>
           <div class="form-group">
-            <label for="recipient-type" id="type_label" class="col-form-label">Tipo de presupuesto:</label>
+            <label for="type" id="type_label" class="col-form-label">Tipo de presupuesto:</label>
             <select class="custom-select" id="type">
                         <option selected value="0">Seleccionar tipo...</option>
                         <option value="kgs">Kilogramos</option>
@@ -83,18 +83,18 @@
                         </select>
           </div>
           <div class="form-group">
-            <label for="recipient-last_name" id="last_name_label" class="col-form-label">Mes:</label>
+            <label for="month" id="last_name_label" class="col-form-label">Mes:</label>
             <?php echo form_dropdown('month', $months, date("m"),array
                     ('class'=>'custom-select','id'=>'month'));?>
           </div>
           <div class="form-group">
-            <label for="recipient-username" id="username_label" class="col-form-label"> Año:</label>
+            <label for="year" id="username_label" class="col-form-label"> Año:</label>
             <?php echo form_dropdown('year', $years, date("Y"),array
                     ('class'=>'custom-select','id'=>'year'));?>
            
           </div>
           <div class="form-group">
-            <label for="recipient-budget" id="budget_label" class="col-form-label">Presupuesto:</label>
+            <label for="budget" id="budget_label" class="col-form-label">Presupuesto:</label>
             <input type="text" class="form-control" id="budget" name="in_budget" placeholder="Escriba el presupuesto">
           </div>
           <div class="form-group">
@@ -109,4 +109,5 @@
     </div>
   </div>
 </div>
+
 <?php echo view("footer"); ?>

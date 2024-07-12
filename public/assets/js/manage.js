@@ -174,3 +174,33 @@ function progress_bar(data={title:'',txt:'',proges:'0',state:'progress-bar-anima
 
     
 }
+
+
+function edit_budgets(){
+    $('#form').on('show.bs.modal', function (event) {
+        let button = $(event.relatedTarget)
+        let recipient = button.data('whatever')
+        let budget = recipient.split(" ");
+        let budget_id = budget[budget.length - 1];
+        if (!isNaN(budget_id) && !isNaN(parseFloat(budget_id))) {
+            let budgetData = $("#"+budget_id).val();
+            let budgetObject = JSON.parse(budgetData);
+            for (let key in budgetObject) {
+                if (budgetObject.hasOwnProperty(key)) {
+                    $('#' + key).val(budgetObject[key]);
+                }
+            }
+
+            console.log(budgetObject);
+        } else {
+            console.log(`${budget_id} no es un número.`);
+        }
+
+        console.log(budget_id);
+    });
+
+
+
+
+
+}

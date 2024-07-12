@@ -18,6 +18,22 @@ class Budget extends Model
 		$query = $builder->get();
 		return ($query->getNumRows()==1);
 	}
+	function get_info($budget_id){
+		$builder=$this->db->table('budgets');
+		$builder->where('budget_id',$budget_id);
+		if($query->getNumRows()==1){
+			$query = $builder->get();
+			return $query->getRow();
+		}else{
+			$fields = $query->getFieldNames();
+				$budget_obj =new \stdClass;
+				foreach ($fields as $field)
+				{
+					$budget_obj->$field='';
+				}
+				return $budget_obj;
+		}
+	}
 
     /*Inserta o actualiza a un presupuesto*/
 	function guardar(&$budget_data,$budget_id=false){
